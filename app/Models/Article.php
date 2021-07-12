@@ -26,8 +26,8 @@ class Article extends Model
         'picture' => 'array'
     ];
 
-    public function tags(){
-        return $this->hasMany(Tag::class);
+    public function tag(){
+        return $this->belongsTo(Tag::class);
     }
     public function setPicturesAttribute($value)
     {

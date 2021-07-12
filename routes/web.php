@@ -16,14 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
 
     if(auth()->user()){
-        auth()->user()->assignRole('licencier');
+        auth()->user()->assignRole(['licencier']);
     }elseif(auth()->user()){
-        auth()->user()->assignRole('bureau');
+        auth()->user()->assignRole(['bureau']);
     }else{
         return view('welcome');
     }
     
 });
+Route::get('/articles', App\Http\Livewire\Articles::class)->name('articles');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

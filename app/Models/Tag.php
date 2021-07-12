@@ -23,10 +23,10 @@ class Tag extends Model
     // protected $hidden = [];
     // protected $dates = [];
 
-   public function product(){
+   public function products(){
        return $this->hasMany(Product::class);
    }
-   public function article(){
+   public function articles(){
        return $this->hasMany(Article::class);
    }
 }

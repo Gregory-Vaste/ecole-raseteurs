@@ -72,6 +72,25 @@ class ArticleCrudController extends CrudController
             // optional:
             //'temporary' => 10 // if using a service, such as S3, that requires you to make temporary URLs this will make a URL that is valid for the number of minutes specified);
         ]);
+        Crud::addField([ // Select
+            'label'     => "Category",
+            'type'      => 'select',
+            'name'      => 'tag_id', // the db column for the foreign key
+         
+            // optional 
+            // 'entity' should point to the method that defines the relationship in your Model
+            // defining entity will make Backpack guess 'model' and 'attribute'
+            'entity'    => 'tag', 
+         
+            // optional - manually specify the related model and attribute
+            'model'     => "App\Models\Tag", // related model
+            'attribute' => 'name', // foreign key attribute that is shown to user
+         
+            // optional - force the related options to be a custom query, instead of all();
+            'options'   => (function ($query) {
+                 return $query->orderBy('name', 'ASC')->where('type_2', 0)->get();
+             }), //  you can use this to filter the results show in the select
+         ]);
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');
