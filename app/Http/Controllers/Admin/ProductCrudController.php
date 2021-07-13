@@ -87,9 +87,13 @@ class ProductCrudController extends CrudController
          
             // optional - force the related options to be a custom query, instead of all();
             'options'   => (function ($query) {
-                 return $query->orderBy('name', 'ASC')->where('type', 1)->get();
+                 return $query->orderBy('name', 'ASC')->where('product_id', 1)->get();
              }), //  you can use this to filter the results show in the select
          ]);
+
+
+        //inser a tag for product
+        Crud::addField(['name'=>'tag_id','type'=>'text', 'label'=>'Ajouter un nouveau tag']);
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');

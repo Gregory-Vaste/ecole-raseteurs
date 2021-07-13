@@ -1,8 +1,8 @@
 
 
 <div class="mb-3" style="max-width: 540px;">
+  @foreach ($articles as $article)
     <div class="row shadow p-3 mb-5 rounded">
-    @foreach ($articles as $article)
       <div class="col-md-4">
         <img src="{{asset(image/img-course).$article->picture}}" alt="{{$article->title}}">
       </div>
@@ -13,7 +13,7 @@
           <p class="card-text"><i><small>{{$article->autor}}</small></i></p>
         </div>
       </div>
-    @endforeach
     </div>
+    @endforeach
   </div>
 

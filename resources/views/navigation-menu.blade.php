@@ -16,9 +16,16 @@
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
                 </div>
+                {{-- articles links--}}
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('articles') }}" :active="request()->routeIs('articles')">
                         {{ __('Articles') }}
+                    </x-jet-nav-link>
+                </div>
+                {{-- products links --}}
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('products') }}" :active="request()->routeIs('products')">
+                        {{ __('Products') }}
                     </x-jet-nav-link>
                 </div>
             </div>

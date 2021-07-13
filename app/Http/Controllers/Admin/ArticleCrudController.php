@@ -61,7 +61,7 @@ class ArticleCrudController extends CrudController
 
         //CRUD::setFromDb(); // fields
         Crud::addField(['name'=>'title','type'=>'text', 'label'=>'Title']);
-        Crud::addField(['name'=>'description','type'=>'textarea', 'label'=>'Content']);
+        Crud::addField(['name'=>'content','type'=>'textarea', 'label'=>'Content']);
         Crud::addField(['name'=>'autor','type'=>'text', 'label'=>'Autor']);
         Crud::addField([ // Upload
             'name'      => 'picture',
@@ -88,9 +88,14 @@ class ArticleCrudController extends CrudController
          
             // optional - force the related options to be a custom query, instead of all();
             'options'   => (function ($query) {
-                 return $query->orderBy('name', 'ASC')->where('type_2', 0)->get();
+                 return $query->orderBy('name', 'ASC')->where('article_id', 1)->get();
              }), //  you can use this to filter the results show in the select
          ]);
+
+
+        // inser tag for article
+
+        Crud::addField(['name'=>'','type'=>'text', 'label'=>'Tag']);
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');

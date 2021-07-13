@@ -40,7 +40,7 @@ class TagCrudController extends CrudController
     protected function setupListOperation()
     {
         // CRUD::setFromDb(); // columns
-        $this->crud->setColumns(['name','slug','type']);
+        $this->crud->setColumns(['name','slug','article_id','product_id']);
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
@@ -58,11 +58,11 @@ class TagCrudController extends CrudController
     {
         CRUD::setValidation(TagRequest::class);
 
-        //  CRUD::setFromDb(); // fields
+         //CRUD::setFromDb(); // fields
         Crud::addField(['name'=>'name','type'=>'text', 'label'=>'Name of tag']);
         Crud::addField(['name'=>'slug','type'=>'text', 'label'=>'Url']);
-        Crud::addField(['name'=>'type','type'=>'checkbox', 'label'=>'Tag for product']);
-        Crud::addField(['name'=>'type_2','type'=>'checkbox', 'label'=>'Tag for article']);
+        Crud::addField(['name'=>'product_id','type'=>'checkbox', 'label'=>'Tag for product']);
+        Crud::addField(['name'=>'article_id','type'=>'checkbox', 'label'=>'Tag for article']);
           
         /**
          * Fields can be defined using the fluent syntax or array syntax:
